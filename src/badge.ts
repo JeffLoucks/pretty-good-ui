@@ -1,5 +1,5 @@
 import { LitElement, css, html } from 'lit'
-import { customElement, property } from 'lit/decorators.js'
+import { customElement } from 'lit/decorators.js'
 
 
 @customElement('pg-badge')
@@ -27,7 +27,7 @@ render() {
 	return html`
 	<span>
 		<p>
-			<slot></slot>
+			<slot>Badge</slot>
 		</p>
 	</span>
 	`
