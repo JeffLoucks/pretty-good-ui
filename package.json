@@ -1,26 +1,34 @@
 {
   "name": "pretty-good-ui",
+  "license": "MIT",
   "version": "0.1.0",
   "type": "module",
   "files": ["dist"],
   "main": "./dist/pretty-good-ui.js",
+  "types": "./dist/pretty-good-ui.js",
   "module": "./dist/pretty-good-ui.js",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+	"prepublishOnly": "npm run build",
+    "preview": "vite preview",
+    "test": "web-test-runner tests/**/*.spec.ts --node-resolve",
+    "test:watch": "web-test-runner tests/**/*.spec.ts --node-resolve --watch"
   },
   "exports": {
-	".": {
-		"import": "./dist/pretty-good-ui.js",
-		"export": "./dist/pretty-good-ui.cjs"
-	}
+    ".": {
+      "import": "./dist/pretty-good-ui.js",
+      "export": "./dist/pretty-good-ui.cjs"
+    }
   },
   "dependencies": {
+    "@web/test-runner-playwright": "^0.11.0",
     "lit": "^3.1.2"
   },
   "devDependencies": {
-    "@types/node": "^20.12.11",
+    "@open-wc/testing": "^3.0.0-next.5",
+    "@remcovaes/web-test-runner-vite-plugin": "^1.2.1",
+    "@web/test-runner": "^0.18.2",
     "typescript": "^5.2.2",
     "vite": "^5.2.0"
   }
