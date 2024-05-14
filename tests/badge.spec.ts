@@ -7,16 +7,12 @@ npm i --save lit-html
 */
 
 import { html, fixture, expect } from '@open-wc/testing';
-import { Badge } from '../src/badge';
+import '../src/badge';
 
 describe('badge.ts', () => {
-	it('renders', async () => {
+	it('render shadowDom with an empty slot', async () => {
 		const badge = await fixture(html`<pg-badge><pg-badge>`)
-
-		expect(badge).shadowDom.to.equal(`
-		<p>
-			<slot></slot>
-		</p>
-		`)
-	})
+		expect(badge).shadowDom.to.equal(`<p><slot></slot></p>`);
+	});
+	
 });
