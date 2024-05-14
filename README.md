@@ -17,7 +17,9 @@ Always open to constructive feedback so feel free to let me know your thoughts!
 
 Great for notifications, or alerts. Easily customizable using css variables.
 
-**HTML**
+
+**Usage**
+`import 'pretty-good-ui'`
 `<pg-badge>Badge content here!</pg-badge>`
 
 **Available CSS Variables and Their Defaults**
