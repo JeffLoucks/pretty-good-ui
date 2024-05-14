@@ -11,3 +11,30 @@ Always open to constructive feedback so feel free to let me know your thoughts!
 `npm install pretty-good-ui`
 
 
+## Components
+
+### Badge
+
+Great for notifications, or alerts. Easily customizable using css variables.
+
+**HTML**
+`<pg-badge>Badge content here!</pg-badge>`
+
+**Available CSS Variables and Their Defaults**
+
+```
+pg-badge {
+	--border: 1px solid #999999;
+	--border-radius: 10px;
+	--background-color: #FFFFFF;
+	--box-shadow: 0;
+	--py: 0;
+	--px: 0;
+	--my: 0;
+	--mx: 0;
+	--color: #333333;
+	--font-family: "Helvetica";
+	--font-size: 12px;
+	--font-weight: normal;
+}
+```
