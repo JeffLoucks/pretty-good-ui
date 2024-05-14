@@ -19,7 +19,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-	"declaration": true
+	"declaration": true,
+	"outDir": "./dist"
   },
   "include": ["src"]
 }

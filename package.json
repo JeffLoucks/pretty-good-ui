@@ -3,22 +3,21 @@
   "license": "MIT",
   "version": "0.1.0",
   "type": "module",
-  "files": ["dist"],
-  "main": "./dist/pretty-good-ui.js",
-  "types": "./dist/pretty-good-ui.js",
-  "module": "./dist/pretty-good-ui.js",
+  "files": [
+    "dist/*"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-	"prepublishOnly": "npm run build",
+    "prepublishOnly": "npm run build",
     "preview": "vite preview",
     "test": "web-test-runner tests/**/*.spec.ts --node-resolve",
     "test:watch": "web-test-runner tests/**/*.spec.ts --node-resolve --watch"
   },
   "exports": {
-    ".": {
-      "import": "./dist/pretty-good-ui.js",
-      "export": "./dist/pretty-good-ui.cjs"
+    "./badge": {
+      "import": "./dist",
+      "export": "./dist/badge.cjs"
     }
   },
   "dependencies": {
@@ -30,6 +29,7 @@
     "@remcovaes/web-test-runner-vite-plugin": "^1.2.1",
     "@web/test-runner": "^0.18.2",
     "typescript": "^5.2.2",
-    "vite": "^5.2.0"
+    "vite": "^5.2.0",
+    "vite-plugin-dts": "^3.9.1"
   }
 }
