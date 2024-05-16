@@ -4,12 +4,20 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Pretty Good UI</title>
-		<script type="module" src="/src/badge.ts"></script>
+		<script type="module" src="/src/main.ts"></script>
 	</head>
 	<body>
+		<pg-navbar>
+			<h1 slot="logo">Pretty Good UI</h1>
+			<a href="/" slot="right-link">Docs</a>
+			<a href="/" slot="right-link">About</a>
+		</pg-navbar>
 		<pg-badge></pg-badge>
 	</body>
 	<style>
+		pg-navbar {
+			/* --justify-content: center; */
+		}
 	/* pg-badge {
 		--border-radius: 10px;
 		--font-size: 14px;
