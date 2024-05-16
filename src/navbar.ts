@@ -1,4 +1,4 @@
-import { LitElement, css, html, nothing } from 'lit';
+import { LitElement, PropertyValueMap, css, html } from 'lit';
 import { customElement, property, queryAssignedNodes } from 'lit/decorators.js';
 
 @customElement('pg-navbar')
@@ -10,19 +10,15 @@ export class Navbar extends LitElement {
 	// @property({type: String}) mobileMenuIcon = '../path/to/svg';
 	
 
+	// I think instead of overcomplicated this I'm going to have an orientation property
+	// orientation="left || center || right"
+	// each orientation with render a different set of nodes. This will also make it explicity for the dev
+
 	@queryAssignedNodes({ slot: 'right-link', flatten: true })
 	_rightLinkNodes!: Array<Node>;
 	
 	@queryAssignedNodes({ slot: 'left-link', flatten: true })
 	_leftLinkNodes!: Array<Node>;
-
-	renderNodes(nodes) {
-		return nodes && nodes.length ? html`
-				<div>
-					<slot name="left-link"></slot>
-				</div>
-			` : nothing
-	}
 
 	static styles = css`
 		nav {
@@ -50,8 +46,25 @@ export class Navbar extends LitElement {
 			font-weight: var(--font-weight, normal);
 			margin: 0;
 		}
+		.hidden {
+			display: none;
+		}
 	`
 
+	protected createRenderRoot(): HTMLElement | DocumentFragment {
+		const root = super.createRenderRoot();
+		debugger;
+		return root;
+	}
+
+	constructor() {
+		super();
+		debugger;
+	}
+
+	protected firstUpdated(_changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>): void {
+		debugger;
+	}
 	// Dynamically handle slotted children for responsive vs desktop view?
 	// https://lit.dev/docs/components/shadow-dom/#accessing-slotted-children
 
@@ -62,11 +75,15 @@ export class Navbar extends LitElement {
 	render() {
 		return html`
 		<nav>
-			${this.renderNodes(this._leftLinkNodes)}
+			<div>
+				<slot name="left-link"></slot>
+			</div>
 			<div>
 				<slot name="logo"></slot>
 			</div>
-			${this.renderNodes(this._rightLinkNodes)}
+			<div>
+				<slot name="right-link"></slot>
+			</div>
 		</nav>
 		`
 	}

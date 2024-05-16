@@ -7,20 +7,20 @@
 		<script type="module" src="/src/main.ts"></script>
 	</head>
 	<body>
-		<pg-navbar>
+		<pg-navbar responsive="300px">
 			<h1 slot="logo">Pretty Good UI</h1>
 			<a href="/" slot="right-link">Docs</a>
 			<a href="/" slot="right-link">About</a>
 		</pg-navbar>
-		<pg-badge></pg-badge>
+		<pg-badge>You've got mail!</pg-badge>
 	</body>
 	<style>
-		pg-navbar {
-			/* --justify-content: center; */
-		}
-	/* pg-badge {
-		--border-radius: 10px;
-		--font-size: 14px;
-	} */
+	pg-badge {
+		/* --border-radius: 10; */
+		--font-size: 10px;
+		--background: linear-gradient(102.72deg, #430EB5 7.6%, #172029 47.8%);
+		--box-shadow: 0px 4px 7px 1px rgba(45, 62, 80, 0.25);
+		--color: white;
+	}
   </style>
 </html>
