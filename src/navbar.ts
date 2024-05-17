@@ -1,5 +1,5 @@
 import { LitElement, PropertyValueMap, css, html } from 'lit';
-import { customElement, property, queryAssignedNodes } from 'lit/decorators.js';
+import { customElement, property, query, queryAssignedNodes } from 'lit/decorators.js';
 
 @customElement('pg-navbar')
 export class Navbar extends LitElement {
@@ -43,27 +43,38 @@ export class Navbar extends LitElement {
 			color: var(--color, #2D3E50);
 			font-family: var(--font-family, 'Helvetica');
 			font-size: var(--font-size, 16px);
+			text-decoration: none;
 			font-weight: var(--font-weight, normal);
 			margin: 0;
 		}
-		.hidden {
-			display: none;
-		}
 	`
 
-	protected createRenderRoot(): HTMLElement | DocumentFragment {
-		const root = super.createRenderRoot();
-		debugger;
-		return root;
-	}
+	// protected createRenderRoot(): HTMLElement | DocumentFragment {
+	// 	const root = super.createRenderRoot();
+	// 	this._rightLinkNodes
+	// 	return root;
+	// }
 
-	constructor() {
-		super();
-		debugger;
-	}
+	// constructor() {
+	// 	super();
+	// 	debugger;
+	// }
+	@query('#right-container')
+	_rightContainer
+	@query('#left-container')
+	_leftContainer
 
 	protected firstUpdated(_changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>): void {
-		debugger;
+		this._rightLinkNodes
+		this._rightContainer
+
+		if (this._rightLinkNodes.length <= 0) {
+			this._rightContainer.remove()
+		}
+		if (this._leftLinkNodes.length <= 0) {
+			this._leftContainer.remove()
+		}
+		
 	}
 	// Dynamically handle slotted children for responsive vs desktop view?
 	// https://lit.dev/docs/components/shadow-dom/#accessing-slotted-children
@@ -75,13 +86,11 @@ export class Navbar extends LitElement {
 	render() {
 		return html`
 		<nav>
-			<div>
+			<div id="left-container">
 				<slot name="left-link"></slot>
 			</div>
-			<div>
-				<slot name="logo"></slot>
-			</div>
-			<div>
+			<slot name="logo"></slot>
+			<div id="right-container">
 				<slot name="right-link"></slot>
 			</div>
 		</nav>
